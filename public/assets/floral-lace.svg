@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 120 120">
+  <defs>
+    <g id="flower" fill="none" stroke="#f4efe6" stroke-width=".65" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 35Q20 29 38 35M0 38H40M1 32Q4 18 11 17Q8 6 20 3Q32 6 29 17Q36 18 39 32"/>
+      <path d="M4 32Q7 22 12 22M36 32Q33 22 28 22M20 32V12M20 28Q7 26 8 19Q17 18 20 28ZM20 28Q33 26 32 19Q23 18 20 28ZM20 22Q11 16 13 10Q20 12 20 22ZM20 22Q29 16 27 10Q20 12 20 22ZM20 16Q14 9 20 5Q26 9 20 16Z"/>
+      <path d="M12 23L17 27M28 23L23 27M15 14L18 20M25 14L22 20M6 31Q9 28 12 30M34 31Q31 28 28 30"/>
+      <path d="M1 34Q0 24 5 21M39 34Q40 24 35 21M9 17Q5 11 10 7M31 17Q35 11 30 7" stroke-dasharray=".6 1.6"/>
+      <circle cx="20" cy="34" r="1.5"/><circle cx="3" cy="36" r=".9"/><circle cx="37" cy="36" r=".9"/>
+    </g>
+    <g id="band"><use xlink:href="#flower"/><use xlink:href="#flower" x="40"/><use xlink:href="#flower" x="80"/></g>
+  </defs>
+  <use xlink:href="#band"/>
+  <use xlink:href="#band" transform="rotate(90 60 60)"/>
+  <use xlink:href="#band" transform="rotate(180 60 60)"/>
+  <use xlink:href="#band" transform="rotate(270 60 60)"/>
+</svg>

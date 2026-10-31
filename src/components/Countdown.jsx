@@ -23,7 +23,7 @@ export default function Countdown() {
   }, []);
 
   return (
-    <section className="sheet-section">
+    <section className="sheet-section countdown-section">
       <Reveal className="countdown">
         {units.map(([label, value], i) => (
           <Fragment key={label}>
