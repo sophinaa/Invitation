@@ -17,8 +17,8 @@ export default function App() {
       <Announcement ref={announcementRef} />
       <Locket />
       <Details />
-      <Closing />
       <Countdown />
+      <Closing />
     </main>
   );
 }

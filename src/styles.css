@@ -45,10 +45,36 @@ body.sealed { overflow: hidden; }
 
 .panel--short { min-height: 70svh; }
 
-.panel--sage { background: var(--sage); }
+/* Sage panels are a wash over the painting that fades out at the edges,
+   so neighbouring sections blend instead of meeting at a hard line. */
+.panel--sage {
+  --fade: 18svh;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--sage) var(--fade),
+    var(--sage) calc(100% - var(--fade)),
+    transparent
+  );
+}
 
-/* Painterly water-lily background. Drop a real image at assets/waterlilies.jpg to replace it. */
-.panel--lilies {
+.panel--sage:first-child {
+  background: linear-gradient(to bottom, var(--sage) calc(100% - var(--fade)), transparent);
+}
+
+.panel--sage:last-child {
+  background: linear-gradient(to bottom, transparent, var(--sage) var(--fade));
+}
+
+/* One painting fixed behind the whole page (a fixed layer rather than
+   background-attachment: fixed, which iOS ignores). */
+.invite::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: min(100%, 480px);
+  margin: 0 auto;
+  z-index: -1;
   background:
     url("/assets/waterlilies.jpg") center / cover,
     radial-gradient(ellipse 18% 5% at 18% 14%, #e9a4b4 0 40%, transparent 70%),
@@ -65,11 +91,14 @@ body.sealed { overflow: hidden; }
     linear-gradient(170deg, #cfd9b8, #b9c9df 45%, #c7b6dd 70%, #a8c29b);
 }
 
-.panel--lilies::before {
-  /* brush-stroke texture */
+.invite::after {
+  /* brush-stroke texture, fixed with the painting so it doesn't seam at panel edges */
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
+  width: min(100%, 480px);
+  margin: 0 auto;
+  z-index: -1;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .09' numOctaves='3' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 -.1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   mix-blend-mode: soft-light;
   pointer-events: none;
@@ -364,7 +393,8 @@ body.opened .mail-title { transform: translateY(-110px); }
 /* ---------- 6. Countdown ---------- */
 
 .panel--footer {
-  min-height: 46svh;
+  /* tall enough that the countdown sits in solid sage between the two fades */
+  min-height: 64svh;
   align-content: center;
   gap: 26px;
 }
@@ -404,8 +434,11 @@ body.opened .mail-title { transform: translateY(-110px); }
 
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 1s ease, transform 1s ease;
+  transform: translateY(32px);
+  transition:
+    opacity 1.4s cubic-bezier(.22, .61, .36, 1),
+    transform 1.4s cubic-bezier(.22, .61, .36, 1);
+  will-change: opacity, transform;
 }
 
 .reveal.in { opacity: 1; transform: none; }
