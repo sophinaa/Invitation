@@ -5,7 +5,6 @@
   --ivory: #ebe5da;
   --periwinkle: #7f8caf;
   --periwinkle-deep: #657698;
-  --wax: #9fb3df;
   --gold: #c9a24a;
   --serif: "Cormorant Garamond", Georgia, serif;
   --caps: "Cormorant SC", "Cormorant Garamond", serif;
@@ -16,18 +15,6 @@
   --ink: #1f2419;
   --tint: 92, 112, 78;
   --text-shadow: 0 2px 18px rgba(20, 30, 15, .42);
-  /* sage cardstock, like the reference envelopes */
-  --envelope: #9aae86;
-  --envelope-inside: #879b74;
-  /* fine paper tooth and soft mottling, blended over the paper colour */
-  --tooth: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='.6'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23t)'/%3E%3C/svg%3E");
-  --mottle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='4' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='.45'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E");
-  /* envelope shapes, stretched to each part's box: a wide flap with a soft U tip */
-  --flap-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 0H100L70 70C62 86 57 94 50 94C43 94 38 86 30 70Z'/%3E%3C/svg%3E");
-  --flap-shape-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 100H100L70 30C62 14 57 6 50 6C43 6 38 14 30 30Z'/%3E%3C/svg%3E");
-  --flap-shadow-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 110' preserveAspectRatio='none'%3E%3Cfilter id='b' x='-10%25' y='-10%25' width='120%25' height='130%25'%3E%3CfeGaussianBlur stdDeviation='2.4'/%3E%3C/filter%3E%3Cpath filter='url(%23b)' d='M0 2H100L70 75C62 91 57 99 50 99C43 99 38 91 30 75Z'/%3E%3C/svg%3E");
-  --flap-edge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M100 0L70 70C62 86 57 94 50 94C43 94 38 86 30 70L0 0' fill='none' stroke='white' stroke-opacity='.4' stroke-width='1.2' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
-  --pocket-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 0Q28 30 46 50Q50 54 54 50Q72 30 100 0V100H0Z'/%3E%3C/svg%3E");
   /* fine paper grain, layered over cream fills */
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .38 0 0 0 0 .28 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
 }
@@ -188,7 +175,7 @@ button { border: 0; font: inherit; }
   bottom: 18vh;
   z-index: 4;
   width: var(--w);
-  aspect-ratio: 1.55;
+  aspect-ratio: 724 / 509;
   perspective: 1100px;
   opacity: var(--env-opacity);
   transform: translate3d(var(--env-x), var(--env-y), 0) scale(var(--env-scale));
@@ -198,32 +185,14 @@ button { border: 0; font: inherit; }
 
 .envelope > span { position: absolute; display: block; }
 
-/* Sage cardstock: fine tooth and mottling blended into the paper colour,
-   lit softly from the top left. */
-.envelope__back,
-.envelope__pocket,
-.flap__face {
-  background:
-    var(--tooth),
-    var(--mottle),
-    linear-gradient(160deg, rgba(255, 255, 255, .16), rgba(255, 255, 255, 0) 45%, rgba(20, 30, 10, .12)),
-    var(--envelope);
-  background-blend-mode: soft-light, soft-light, normal, normal;
-}
+/* Parts cut from the envelope photo (724 x 509 body; the flap is 75%
+   of the body's height). */
+.envelope > img:not(.seal) { position: absolute; display: block; width: 100%; user-select: none; -webkit-user-drag: none; }
 
-/* the inside of the envelope, in shadow, seen once the flap is open */
-.envelope__back {
+.envelope__body {
   inset: 0;
-  border-radius: 2px;
-  background-color: var(--envelope-inside);
-  box-shadow: 0 1px 1px rgba(20, 30, 10, .2), 0 22px 36px -16px rgba(20, 30, 10, .5);
-}
-
-.envelope__back::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(rgba(20, 30, 10, .28), transparent 45%);
+  height: 100%;
+  filter: drop-shadow(0 1px 1px rgba(20, 30, 10, .2)) drop-shadow(0 20px 22px rgba(20, 30, 10, .35));
 }
 
 .envelope__letter {
@@ -234,40 +203,23 @@ button { border: 0; font: inherit; }
   transform: translateY(var(--letter-y));
 }
 
-.envelope__pocket {
-  inset: 0;
-  z-index: 3;
-  border-radius: 2px;
-  -webkit-mask: var(--pocket-shape) 0 0 / 100% 100%;
-  mask: var(--pocket-shape) 0 0 / 100% 100%;
-}
-
-/* faint creases where the side folds meet the bottom fold */
-.envelope__pocket::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to top right, transparent 49.7%, rgba(255, 255, 255, .14) 50%, rgba(20, 30, 10, .08) 50.6%, transparent 54%),
-    linear-gradient(to top left, transparent 49.7%, rgba(255, 255, 255, .14) 50%, rgba(20, 30, 10, .08) 50.6%, transparent 54%);
-}
+.envelope__pocket { inset: 0; height: 100%; z-index: 3; }
 
 /* the closed flap's soft shadow on the pocket; fades as the flap lifts */
 .envelope__flap-shadow {
-  inset: 0 0 auto 0;
-  height: 64%;
+  top: 0;
+  height: 75%;
   z-index: 3;
-  background: rgba(20, 30, 10, .32);
-  -webkit-mask: var(--flap-shadow-shape) 0 0 / 100% 100%;
-  mask: var(--flap-shadow-shape) 0 0 / 100% 100%;
-  opacity: var(--flap-shadow);
+  filter: brightness(0) blur(4px);
+  opacity: calc(var(--flap-shadow) * .35);
+  transform: translateY(4px);
 }
 
-/* The flap has two faces so the inside of the paper turns to face you
-   as it folds back. */
+/* Two faces: the outside of the flap while closed, the inside as it
+   folds back towards you. */
 .envelope__flap {
   inset: 0 0 auto 0;
-  height: 58%;
+  height: 75%;
   z-index: var(--flap-z);
   transform-origin: top;
   transform-style: preserve-3d;
@@ -277,56 +229,27 @@ button { border: 0; font: inherit; }
 .flap__face {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
-.flap__face--out {
-  -webkit-mask: var(--flap-shape) 0 0 / 100% 100%;
-  mask: var(--flap-shape) 0 0 / 100% 100%;
-}
+.flap__face--in { transform: rotateX(180deg); }
 
-/* light catching the cut edge of the flap */
-.flap__face--out::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--flap-edge) 0 0 / 100% 100%;
-}
-
-.flap__face--in {
-  transform: rotateX(180deg);
-  background-color: var(--envelope-inside);
-  -webkit-mask: var(--flap-shape-up) 0 0 / 100% 100%;
-  mask: var(--flap-shape-up) 0 0 / 100% 100%;
-}
-
-/* Pale blue wax, pressed slightly unevenly, with an embossed leaf sprig. */
+/* The wax seal photo, pressed over the flap's tip. */
 .seal {
+  position: absolute;
   left: 50%;
-  top: 56%;
-  width: calc(var(--w) * .17);
-  aspect-ratio: 1;
+  top: 70%;
+  width: calc(var(--w) * .2);
+  height: auto;
   translate: -50% -50%;
   z-index: 7;
-  border-radius: 47% 53% 49% 51% / 54% 47% 53% 46%;
-  background:
-    radial-gradient(circle at 50% 50%, transparent 58%, rgba(255, 255, 255, .18) 61%, rgba(60, 80, 130, .14) 66%, transparent 70%),
-    radial-gradient(circle at 36% 30%, #d6e0f3, var(--wax) 48%, #8ea3cf 85%);
-  box-shadow:
-    inset -2px -3px 5px rgba(60, 80, 130, .3),
-    inset 2px 2px 4px rgba(255, 255, 255, .45),
-    0 2px 3px rgba(40, 50, 90, .3),
-    0 6px 10px -4px rgba(40, 50, 90, .35);
-  display: grid !important;
-  place-items: center;
+  filter: drop-shadow(0 1px 1px rgba(20, 30, 10, .35)) drop-shadow(0 6px 8px rgba(20, 30, 10, .3));
   opacity: var(--seal-opacity);
   transform: translateY(var(--seal-y));
 }
-
-.seal svg { width: 62%; height: 62%; overflow: visible; }
-.seal .emboss-dark { stroke: rgba(70, 90, 140, .55); transform: translate(.5px, .6px); }
-.seal .emboss-light { stroke: rgba(240, 245, 255, .8); }
 
 /* ---------- Locket ---------- */
 
