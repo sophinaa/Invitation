@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 90 90" width="90" height="90">
+  <defs>
+    <g id="band">
+      <rect x="0" y="6" width="90" height="20"/>
+      <circle cx="15" cy="7" r="7"/><circle cx="45" cy="7" r="7"/><circle cx="75" cy="7" r="7"/>
+      <circle cx="0" cy="9" r="3"/><circle cx="30" cy="9" r="3"/><circle cx="60" cy="9" r="3"/><circle cx="90" cy="9" r="3"/>
+      <circle cx="15" cy="26" r="4"/><circle cx="45" cy="26" r="4"/><circle cx="75" cy="26" r="4"/>
+      <circle cx="6" cy="6" r="6"/>
+    </g>
+    <g id="holes">
+      <circle cx="15" cy="16" r="3.4"/><circle cx="45" cy="16" r="3.4"/><circle cx="75" cy="16" r="3.4"/>
+      <circle cx="15" cy="4" r="1.4"/><circle cx="45" cy="4" r="1.4"/><circle cx="75" cy="4" r="1.4"/>
+      <circle cx="30" cy="14" r="1.3"/><circle cx="60" cy="14" r="1.3"/>
+      <circle cx="30" cy="21" r="1.3"/><circle cx="60" cy="21" r="1.3"/>
+      <circle cx="23" cy="10.5" r="1"/><circle cx="37" cy="10.5" r="1"/><circle cx="53" cy="10.5" r="1"/><circle cx="67" cy="10.5" r="1"/>
+      <circle cx="15" cy="26.5" r="1.4"/><circle cx="45" cy="26.5" r="1.4"/><circle cx="75" cy="26.5" r="1.4"/>
+    </g>
+    <mask id="m">
+      <rect width="90" height="90" fill="#fff"/>
+      <g fill="#000">
+        <use xlink:href="#holes"/>
+        <use xlink:href="#holes" transform="rotate(90 45 45)"/>
+        <use xlink:href="#holes" transform="rotate(180 45 45)"/>
+        <use xlink:href="#holes" transform="rotate(270 45 45)"/>
+      </g>
+    </mask>
+  </defs>
+  <g fill="#f4efe6" mask="url(#m)">
+    <use xlink:href="#band"/>
+    <use xlink:href="#band" transform="rotate(90 45 45)"/>
+    <use xlink:href="#band" transform="rotate(180 45 45)"/>
+    <use xlink:href="#band" transform="rotate(270 45 45)"/>
+  </g>
+</svg>

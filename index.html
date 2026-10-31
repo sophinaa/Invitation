@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Abdullah &amp; Alizea</title>
+  <meta name="description" content="Announcing the Nikkah of Capt. Muhammad Abdullah Hameed & Alizea Maqsud Ahmed">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,500;1,600&family=Cormorant+SC:wght@500&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="sealed">
+  <main class="invite">
+
+    <!-- 1. Envelope -->
+    <section class="panel panel--sage" id="mail">
+      <div class="lace-frame">
+        <h1 class="mail-title reveal">You’ve got mail!</h1>
+        <button class="envelope" id="envelope" aria-label="Open the invitation">
+          <span class="envelope__back"></span>
+          <span class="envelope__letter"></span>
+          <span class="envelope__pocket"></span>
+          <span class="envelope__flap"></span>
+          <span class="seal" aria-hidden="true">
+            <svg viewBox="0 0 40 40"><path d="M20 8c2 4 2 8 0 12-2-4-2-8 0-12zm0 12c4-1 8 0 11 3-4 1-8 0-11-3zm0 0c-4-1-8 0-11 3 4 1 8 0 11-3zm0 0v12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </span>
+        </button>
+        <p class="hint">tap to open</p>
+      </div>
+    </section>
+
+    <!-- 2. Announcement -->
+    <section class="panel panel--lilies">
+      <div class="lace-card announce reveal">
+        <p class="bismillah" lang="ar" dir="rtl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+        <p class="eyebrow">Announcing the Nikkah of</p>
+        <h2 class="names">
+          <span>Capt. Muhammad Abdullah Hameed</span>
+          <span class="amp">&amp;</span>
+          <span>Alizea Maqsud Ahmed</span>
+        </h2>
+        <p class="eyebrow date" id="date-text">Something of January, Twenty Twenty Seven</p>
+      </div>
+    </section>
+
+    <!-- 3. Locket & monogram -->
+    <section class="panel panel--sage">
+      <div class="lace-frame lace-frame--tall">
+        <div class="locket reveal">
+          <svg class="chain" viewBox="0 0 220 80" aria-hidden="true">
+            <path d="M20 78 C30 20 80 4 110 4 C140 4 190 20 200 78" fill="none" stroke="#c9a24a" stroke-width="2" stroke-dasharray="3 2"/>
+          </svg>
+          <div class="locket__half">
+            <img src="assets/photo-1.jpg" alt="" onerror="this.remove()">
+          </div>
+          <div class="locket__hinge"></div>
+          <div class="locket__half">
+            <img src="assets/photo-2.jpg" alt="" onerror="this.remove()">
+          </div>
+        </div>
+        <div class="monogram reveal" aria-label="A and A">
+          <span class="m1">A</span>
+          <span class="m-amp">&amp;</span>
+          <span class="m2">A</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Details -->
+    <section class="panel panel--lilies">
+      <div class="lace-card lace-card--big details reveal">
+        <dl>
+          <div><dt>Location:</dt><dd id="location">To be announced</dd></div>
+          <div><dt>Time:</dt><dd id="time">To be announced</dd></div>
+          <div><dt>Contact info:</dt><dd id="contact">To be announced</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 5. Closing -->
+    <section class="panel panel--lilies panel--short">
+      <div class="cartouche reveal">
+        <svg viewBox="0 0 400 260" preserveAspectRatio="none" aria-hidden="true">
+          <path class="cartouche__fill" d="M60 24H160C175 24 185 8 200 8S225 24 240 24H340A36 36 0 0 0 376 60V200A36 36 0 0 0 340 236H240C225 236 215 252 200 252S175 236 160 236H60A36 36 0 0 0 24 200V60A36 36 0 0 0 60 24Z"/>
+          <path class="cartouche__line" d="M66 36H162C176 36 186 22 200 22S224 36 238 36H334A30 30 0 0 0 364 66V194A30 30 0 0 0 334 224H238C224 224 214 238 200 238S176 224 162 224H66A30 30 0 0 0 36 194V66A30 30 0 0 0 66 36Z"/>
+          <g class="cartouche__curls">
+            <path d="M14 46c-8-14 6-28 18-20 8 6 2 16-5 12"/>
+            <path d="M386 46c8-14-6-28-18-20-8 6-2 16 5 12"/>
+            <path d="M14 214c-8 14 6 28 18 20 8-6 2-16-5-12"/>
+            <path d="M386 214c8 14-6 28-18 20-8-6-2-16 5-12"/>
+          </g>
+        </svg>
+        <p>We look forward to<br>seeing you.</p>
+      </div>
+    </section>
+
+    <!-- 6. Countdown -->
+    <section class="panel panel--sage panel--footer">
+      <div class="countdown reveal" id="countdown">
+        <div><span data-unit="days">00</span><small>Days</small></div>
+        <b>:</b>
+        <div><span data-unit="hours">00</span><small>Hours</small></div>
+        <b>:</b>
+        <div><span data-unit="minutes">00</span><small>Minutes</small></div>
+        <b>:</b>
+        <div><span data-unit="seconds">00</span><small>Seconds</small></div>
+      </div>
+      <p class="inshallah" lang="ar" dir="rtl">إن شاء الله</p>
+    </section>
+
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
