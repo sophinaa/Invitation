@@ -43,7 +43,7 @@ export function useCinema(ref) {
       const open = smoothstep(120, 640, s);
       const letter = smoothstep(420, 900, s);
       const launch = smoothstep(820, 1380, s);
-      const part = Math.pow(smoothstep(700, 1350, s), 1.5);
+      const sink = Math.pow(smoothstep(700, 1350, s), 1.5);
       const names = segment(s, 1000, 1280, 1580, 1820);
       const locket = segment(s, 1880, 2220, 2620, 2880);
       const cards = Math.pow(smoothstep(2860, 3500, s), 1.55);
@@ -76,10 +76,9 @@ export function useCinema(ref) {
       set("--env-scale", (1 + intro * 0.08 + launch * 0.5).toFixed(4));
       set("--env-opacity", (1 - smoothstep(1150, 1380, s)).toFixed(4));
 
-      set("--water-left-x", `calc(-50% + ${-part * 46}vw + ${px * 22}px)`);
-      set("--water-right-x", `calc(-50% + ${part * 46}vw + ${px * 22}px)`);
-      set("--water-y", `${py * 10 - part * 120}px`);
-      set("--water-scale", (1 + part * 0.6).toFixed(4));
+      set("--water-x", `calc(-50% + ${px * 22}px)`);
+      set("--water-y", `${py * 10 + sink * innerHeight * 0.5}px`);
+      set("--water-scale", (1 + sink * 0.25).toFixed(4));
 
       set("--names-opacity", names.active.toFixed(4));
       set("--names-y", panelY(names));

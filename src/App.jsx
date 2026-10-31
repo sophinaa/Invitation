@@ -26,8 +26,7 @@ export default function App() {
               <Locket />
               <p className="monogram">A &amp; A</p>
             </div>
-            <div className="water water--left"><div className="water__paint"></div></div>
-            <div className="water water--right"><div className="water__paint"></div></div>
+            <div className="water"></div>
           </div>
 
           <section className="intro-copy" aria-label="Welcome">

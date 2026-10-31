@@ -47,7 +47,7 @@ button { border: 0; font: inherit; }
   --intro-y: 0px; --intro-opacity: 1;
   --flap: 0deg; --flap-z: 4; --flap-shadow: 1; --seal-opacity: 1; --seal-y: 0px; --letter-y: 0%;
   --env-x: -50%; --env-y: 0px; --env-scale: 1; --env-opacity: 1;
-  --water-left-x: -50%; --water-right-x: -50%; --water-y: 0px; --water-scale: 1;
+  --water-x: -50%; --water-y: 0px; --water-scale: 1;
   --names-opacity: 0; --names-y: calc(-50% + 58px);
   --locket-opacity: 0; --locket-y: calc(-50% + 58px); --locket-scale: .94;
   --cards-x: 420vw; --cards-visibility: hidden; --controls-opacity: 0; --closing-opacity: 0;
@@ -134,8 +134,9 @@ button { border: 0; font: inherit; }
   will-change: transform, opacity;
 }
 
-/* Foreground water: the lily band of the painting, split down the middle.
-   The halves line up at rest and part as you scroll. */
+/* Foreground water: the lily band of the painting, closer than the sky.
+   It sinks out of frame faster than the background moves, which gives the
+   depth, and its top edge fades into the sky so there's no seam. */
 .water {
   position: absolute;
   left: 50%;
@@ -144,26 +145,13 @@ button { border: 0; font: inherit; }
   width: min(118vw, 2240px);
   height: 44vh;
   pointer-events: none;
-  transform: translate3d(var(--water-left-x), var(--water-y), 0) scale(var(--water-scale));
-  transform-origin: 21% 60%;
-  will-change: transform;
-}
-
-.water--left { -webkit-mask: linear-gradient(90deg, #000 44%, transparent 56%); mask: linear-gradient(90deg, #000 44%, transparent 56%); }
-.water--right {
-  transform: translate3d(var(--water-right-x), var(--water-y), 0) scale(var(--water-scale));
-  transform-origin: 79% 60%;
-  -webkit-mask: linear-gradient(270deg, #000 44%, transparent 56%);
-  mask: linear-gradient(270deg, #000 44%, transparent 56%);
-}
-
-.water__paint {
-  position: absolute;
-  inset: 0;
   background: url("/assets/waterlilies.jpg") center 64% / 100% auto;
   -webkit-mask: linear-gradient(to top, #000 45%, transparent);
   mask: linear-gradient(to top, #000 45%, transparent);
   filter: saturate(1.08);
+  transform: translate3d(var(--water-x), var(--water-y), 0) scale(var(--water-scale));
+  transform-origin: 50% 100%;
+  will-change: transform;
 }
 
 /* ---------- Envelope ---------- */
