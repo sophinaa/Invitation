@@ -50,7 +50,7 @@ body.sealed { overflow: hidden; }
 /* Painterly water-lily background. Drop a real image at assets/waterlilies.jpg to replace it. */
 .panel--lilies {
   background:
-    url("assets/waterlilies.jpg") center / cover,
+    url("/assets/waterlilies.jpg") center / cover,
     radial-gradient(ellipse 18% 5% at 18% 14%, #e9a4b4 0 40%, transparent 70%),
     radial-gradient(ellipse 14% 4% at 78% 30%, #f0b9c4 0 40%, transparent 70%),
     radial-gradient(ellipse 16% 4% at 30% 72%, #e79cb0 0 40%, transparent 70%),
@@ -82,7 +82,7 @@ body.sealed { overflow: hidden; }
   position: relative;
   width: 100%;
   border: 30px solid transparent;
-  border-image: url("assets/lace.svg") 30 round;
+  border-image: url("/assets/lace.svg") 30 round;
 }
 
 .lace-frame {
