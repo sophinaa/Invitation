@@ -1,10 +1,9 @@
-import { forwardRef } from "react";
 import Reveal from "./Reveal.jsx";
 
-const Announcement = forwardRef(function Announcement(props, ref) {
+export default function Announcement() {
   return (
-    <section className="panel panel--lilies" ref={ref}>
-      <Reveal className="lace-card announce">
+    <section className="sheet-section">
+      <Reveal className="announce">
         <p className="bismillah" lang="ar" dir="rtl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
         <p className="eyebrow">Announcing the Nikkah of</p>
         <h2 className="names">
@@ -16,6 +15,4 @@ const Announcement = forwardRef(function Announcement(props, ref) {
       </Reveal>
     </section>
   );
-});
-
-export default Announcement;
+}

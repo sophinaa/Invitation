@@ -2,7 +2,7 @@ import Reveal from "./Reveal.jsx";
 
 export default function Closing() {
   return (
-    <section className="panel panel--lilies panel--short">
+    <section className="sheet-section">
       <Reveal className="cartouche">
         <svg viewBox="0 0 400 260" preserveAspectRatio="none" aria-hidden="true">
           <path className="cartouche__fill" d="M60 24H160C175 24 185 8 200 8S225 24 240 24H340A36 36 0 0 0 376 60V200A36 36 0 0 0 340 236H240C225 236 215 252 200 252S175 236 160 236H60A36 36 0 0 0 24 200V60A36 36 0 0 0 60 24Z"/>

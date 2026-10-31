@@ -3,8 +3,8 @@ import { EVENT } from "../event.js";
 
 export default function Details() {
   return (
-    <section className="panel panel--lilies">
-      <Reveal className="lace-card lace-card--big details">
+    <section className="sheet-section">
+      <Reveal className="details">
         <dl>
           <div><dt>Location:</dt><dd>{EVENT.location}</dd></div>
           <div><dt>Time:</dt><dd>{EVENT.time}</dd></div>

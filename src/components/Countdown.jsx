@@ -23,7 +23,7 @@ export default function Countdown() {
   }, []);
 
   return (
-    <section className="panel panel--sage panel--footer">
+    <section className="sheet-section">
       <Reveal className="countdown">
         {units.map(([label, value], i) => (
           <Fragment key={label}>
