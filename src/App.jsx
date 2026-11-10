@@ -3,6 +3,7 @@ import { useCinema } from "./useCinema.js";
 import Envelope from "./components/Envelope.jsx";
 import Locket from "./components/Locket.jsx";
 import DetailCards from "./components/DetailCards.jsx";
+import { EVENT } from "./event.js";
 
 // One pinned stage; scrolling through the tall section plays the layers.
 export default function App() {
@@ -18,9 +19,9 @@ export default function App() {
             <div className="shade"></div>
             <header className="site-header">
               <span className="site-logo">Abdullah &amp; Alizea</span>
-              <span className="site-date">January 2027</span>
+              <span className="site-date">{EVENT.dateText}</span>
             </header>
-            <h1 className="hero-title">Nikkah</h1>
+            <h1 className="hero-title">Scroll to open</h1>
             <Envelope />
             <div className="locket-panel">
               <Locket />
@@ -28,14 +29,6 @@ export default function App() {
             </div>
             <div className="water"></div>
           </div>
-
-          <section className="intro-copy" aria-label="Welcome">
-            <p>You’ve got mail. Scroll to open your invitation.</p>
-            <div className="hero-tags">
-              <span>January 2027</span>
-              <span>Exact date to follow</span>
-            </div>
-          </section>
 
           <section className="story-panel story-panel--names" aria-label="The couple">
             <p className="bismillah" lang="ar" dir="rtl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
@@ -46,8 +39,8 @@ export default function App() {
               Alizea Maqsud Ahmed
             </h2>
             <dl className="facts">
-              <div><dt>January</dt><dd>Exact date to follow</dd></div>
-              <div><dt>2027</dt><dd>Insha’Allah</dd></div>
+              <div><dt>{EVENT.day}</dt><dd>{EVENT.dateText}</dd></div>
+              <div><dt>{EVENT.time}</dt><dd>{EVENT.area}, insha’Allah</dd></div>
             </dl>
           </section>
 

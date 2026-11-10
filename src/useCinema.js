@@ -62,8 +62,6 @@ export function useCinema(ref) {
       set("--title-y", `${intro * -210}px`);
       set("--title-scale", (1 - intro * 0.08).toFixed(4));
       set("--title-opacity", (1 - intro).toFixed(4));
-      set("--intro-y", `${intro * 90}px`);
-      set("--intro-opacity", (1 - intro).toFixed(4));
 
       set("--flap", `${open * 180}deg`);
       set("--flap-z", open > 0.5 ? "1" : "4");

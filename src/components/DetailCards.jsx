@@ -4,18 +4,16 @@ import { EVENT } from "../event.js";
 const TBA = "To be announced";
 
 function detailItems() {
-  const later = "We’ll update this once it’s confirmed.";
+  const daysLeft = Math.max(0, Math.ceil((EVENT.date - Date.now()) / 86400000));
   return [
-    EVENT.dateConfirmed
-      ? {
-          kicker: "Date",
-          title: EVENT.date.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }),
-          note: `${Math.max(0, Math.ceil((EVENT.date - Date.now()) / 86400000))} days to go, insha’Allah.`,
-        }
-      : { kicker: "Date", title: "January 2027", note: "The exact date will follow." },
-    { kicker: "Location", title: EVENT.location, note: EVENT.location === TBA ? later : "" },
-    { kicker: "Time", title: EVENT.time, note: EVENT.time === TBA ? later : "" },
-    { kicker: "Contact", title: EVENT.contact, note: EVENT.contact === TBA ? later : "" },
+    { kicker: "Date", title: EVENT.dateText, note: `${EVENT.day} · ${daysLeft} days to go, insha’Allah.` },
+    { kicker: "Time", title: EVENT.time, note: `${EVENT.day}, ${EVENT.dateText}` },
+    { kicker: "Location", title: EVENT.area, note: EVENT.address },
+    {
+      kicker: "Contact",
+      title: EVENT.contact,
+      note: EVENT.contact === TBA ? "We’ll update this once it’s confirmed." : "",
+    },
   ];
 }
 
